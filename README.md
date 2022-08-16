@@ -29,7 +29,7 @@ The basics of solving both trivial and more challenging business tasks using bas
   Enterprise-level Java development and the basics of the Spring framework.
   
 ###  [Day 09](https://github.com/elenmurnina/piscine_java/tree/master/day09) - Sockets
-  Implementing the basic mechanism of a client/server application based on Java—Sockets API.
+  Implementing the basic mechanism of a client/server application based on Java-Sockets API.
   
 ###  [Rush 00](https://github.com/elenmurnina/piscine_java/tree/master/rush00) - Console Game & Maven
   Implementing quite a complicated game business process using Maven build tool. (Team project)
