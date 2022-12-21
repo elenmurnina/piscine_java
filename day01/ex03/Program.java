@@ -1,3 +1,5 @@
+import java.util.UUID;
+
 public class Program {
 
     public static void main(String[] args) {
@@ -6,7 +8,7 @@ public class Program {
 
         User first = new User();
         first.setName("Lol");
-        first.setBalance(10);
+        first.setBalance(250);
 
         User second = new User();
         second.setName("Kek");
@@ -14,11 +16,11 @@ public class Program {
 
         User third = new User();
         third.setName("Azaza");
-        third.setBalance(21);
+        third.setBalance(210);
 
         User fourth = new User();
         fourth.setName("Ahah");
-        fourth.setBalance(15);
+        fourth.setBalance(1500);
 
         for (int i = 0; i < 10; i++) {
             Transaction tmp;
@@ -55,8 +57,11 @@ public class Program {
         }
         System.out.println();
 
+        first.setTransactionsList(transactions2);
         System.out.println(first.getTransactionsList());
-        first.setTransactionsList(transactions);
-        System.out.println(first.getTransactionsList());
+        for (Transaction t : first.getTransactionsList().toArray()) {
+            System.out.println(t);
+        }
+        transactions2.removeTransactionById(UUID.randomUUID());
     }
 }

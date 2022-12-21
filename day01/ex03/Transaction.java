@@ -60,8 +60,11 @@ public class Transaction {
     }
 
     public void setTransferAmount(int transferAmount) {
-        if ((transferAmount > 0 && transferCategory == Category.DEBIT)
-                || (transferAmount < 0 && transferCategory == Category.CREDIT)) {
+        if (transferAmount > 0 && transferCategory == Category.DEBIT) {
+            System.out.println("Outgoing payments can be negative amounts only");
+        } else if (transferAmount < 0 && transferCategory == Category.CREDIT) {
+            System.out.println("Incoming payments can be positive amounts only");
+        } else {
             this.transferAmount = transferAmount;
         }
     }

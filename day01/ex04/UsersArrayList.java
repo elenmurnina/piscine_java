@@ -13,7 +13,7 @@ public class UsersArrayList implements UsersList {
         }
 
         if (userCount >= users.length) {
-            User[] tmpUsers = new User[users.length * (users.length / 2)];
+            User[] tmpUsers = new User[users.length + (users.length / 2)];
             for (int i = 0; i < users.length; i++) {
                 tmpUsers[i] = users[i];
             }

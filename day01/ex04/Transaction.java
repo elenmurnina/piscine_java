@@ -12,8 +12,20 @@ public class Transaction {
         CREDIT
     }
 
-    public Transaction() {
+    private Transaction(Transaction other) {
+        id = other.id;
+        this.recipient = other.recipient;
+        this.sender = other.sender;
+        this.transferCategory = other.transferCategory;
+        this.transferAmount = other.transferAmount;
+    }
+
+    public Transaction(User recipient, User sender, Category transferCategory, int transferAmount) {
         id = UUID.randomUUID();
+        setRecipient(recipient);
+        setSender(sender);
+        setTransferCategory(transferCategory);
+        setTransferAmount(transferAmount);
     }
 
     public UUID getId() {
@@ -58,12 +70,23 @@ public class Transaction {
         }
     }
 
+    public Transaction createCopyForSecondUser() {
+        Transaction copy = new Transaction(this);
+        if (this.transferCategory == Category.DEBIT) {
+            copy.setTransferCategory(Category.CREDIT);
+            copy.setTransferAmount(this.getTransferAmount() * (-1));
+        } else {
+            copy.setTransferCategory(Category.DEBIT);
+        }
+        return copy;
+    }
+
     @Override
     public String toString() {
         return "Transaction{" +
-                "id=" + getId() + "/n" +
-                ", recipient=" + getRecipient() +
-                ", sender=" + getSender() +
+                "id=" + getId() +
+                ", recipient id=" + getRecipient().getId() +
+                ", sender id=" + getSender().getId() +
                 ", transferCategory=" + getTransferCategory() +
                 ", transferAmount=" + getTransferAmount() +
                 '}';
